@@ -1,13 +1,15 @@
 .header
   .header__title
-    HoBBys
+    HoBBies
   .form
     %input{placeholder: "検索", type: "text",class:"form-content"}/
   .header__user-btn
     .newuser-btn
-      新規登録
+      =link_to users_path do
+        新規登録
     .login-btn
-      ログイン
+      =link_to ""do
+        ログイン
     
 　　
   
