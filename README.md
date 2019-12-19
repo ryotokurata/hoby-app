@@ -23,16 +23,28 @@ Things you may want to cover:
 
 * ...
 # Hoby-app DB設計
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
 |name|string|null: false, index: true|
+
 ### Association
 - has_many :groups, through: :users_group
 - has_many :massages
   has_many :users_groups
+ 
+## categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+|ancestry|string|
+
+### Association
+- has_many :products,dependent: :destroy
+- belongs_to :user
 
 ## groupテーブル
 |Column|Type|Options|
@@ -52,7 +64,7 @@ Things you may want to cover:
 - belongs_to :group
 - belongs_to :user
 
-## massageテーブル
+## chatテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text||
