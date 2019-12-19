@@ -39,7 +39,7 @@
   }
 }
 .main{
-  padding:40px 100px;
+  padding:40px 100px 100px;
   .hobbys{
     display: flex;
     margin-top: 30px;
@@ -47,4 +47,9 @@
       padding:0px 20px;
     }
   }
+}
+.footer{
+  background-image: url(/images/footer.jpg);
+  width:100% ;
+  height: 400px;
 }
