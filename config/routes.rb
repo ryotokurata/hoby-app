@@ -8,5 +8,8 @@ Rails.application.routes.draw do
       get 'login'
     end
   end
-  resources :messages, only: [:index, :create, :new, :show, :destroy]
+  resources :groups, only: [:index, :create, :new, :show, :destroy] do
+  end
+  resources :messages, only: [:index, :create, :new, :show, :destroy] do
+  end
 end
