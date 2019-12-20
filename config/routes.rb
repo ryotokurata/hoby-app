@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     collection do
       get 'login'
     end
-
   end
+  resources :messages, only: [:index, :create, :new, :show, :destroy]
 end

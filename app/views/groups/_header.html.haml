@@ -1,6 +1,17 @@
 .header
   .header__title
     HoBBies
+  - if user_signed_in?
+    .post-btn
+      =link_to "",class: "post-btn" do
+        .post-btn__wide
+          .post-btn__wide__content
+            .post-btn__wide__content__text
+              投稿
+            .post-btn__wide__content__icon
+              %i.fa.fa-camera
+  - else
+    .non
   .form
     %input{placeholder: "検索", type: "text",class:"form-content"}/
   .header__user-btn
@@ -17,6 +28,7 @@
           ログアウト
       - else
         = link_to "ログイン", new_user_session_path
+    
     
 　　
   
