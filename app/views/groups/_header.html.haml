@@ -5,11 +5,18 @@
     %input{placeholder: "検索", type: "text",class:"form-content"}/
   .header__user-btn
     .newuser-btn
-      =link_to users_path do
-        新規登録
+      - if user_signed_in?
+        =link_to edit_user_path(current_user.id) do
+          マイページ
+      - else 
+        =link_to users_path do
+          新規登録
     .login-btn
-      =link_to ""do
-        ログイン
+      - if user_signed_in?
+        =link_to "ログアウト"
+      - else
+        =link_to ""do
+          ログイン
     
 　　
   
