@@ -1,0 +1,6 @@
+.hobby-box
+  =link_to messages_path "" do
+    .hobby-image
+      =image_tag @group.image.url,size: "188x188"
+    .hobby-content
+      = @group.name

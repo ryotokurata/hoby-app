@@ -1,4 +1,8 @@
 .wrapper
   = render "header"
-  = render "main"
+  .main
+    .content
+      .hobbys
+        - @groups.each do |group|
+          =render partial: "imgbox" , locals: { group: group }
   = render "footer"

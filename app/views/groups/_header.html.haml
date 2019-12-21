@@ -7,11 +7,20 @@
         .post-btn__wide
           .post-btn__wide__content
             .post-btn__wide__content__text
+              グループ追加
+            .post-btn__wide__content__icon
+              %i.fa.fa-camera
+  - else
+  - if user_signed_in?
+    .post-btn
+      =link_to new_message_path ,class: "post-btn" do
+        .post-btn__wide
+          .post-btn__wide__content
+            .post-btn__wide__content__text
               投稿
             .post-btn__wide__content__icon
               %i.fa.fa-camera
   - else
-    .non
   .form
     %input{placeholder: "検索", type: "text",class:"form-content"}/
   .header__user-btn
