@@ -17,10 +17,11 @@
         - @messages.each do |message|
           .review__box
             .review__box__image
-              =image_tag @message.image.url,size: "188x188"
+              =image_tag message.image.url,size: "188x188"
             .review__box__contents
               .review__box__contents__content
-                = @message.content
+                = message.content
               .review__box__contents__text
-                = @message.text
-  = render "groups/footer"
+                = message.text
+  .footer
+    = paginate(@messages)

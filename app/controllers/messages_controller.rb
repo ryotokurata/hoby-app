@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.all
+    @messages = Message.includes(:user).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def new
@@ -22,6 +22,6 @@ class MessagesController < ApplicationController
 private
 
   def message_params
-    params.require(:message).permit(:content,:text,:image)
+    params.require(:message).permit(:content,:text,:image).merge(user_id: current_user.id)
   end
 end
