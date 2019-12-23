@@ -78,18 +78,21 @@
 }
 .main{
   padding:40px 100px 100px;
-  .hobbys{
-    flex-wrap: wrap;
-    display: flex;
-    margin-top: 30px;
-    .hobby-box{
-      padding:0px 20px;
-      width: 200px;
-      height: 200px;
-      margin: 30px 20px;
-      .hobby-image{
+  .content{
+    height: 500px;
+    .hobbys{
+      flex-wrap: wrap;
+      display: flex;
+      margin-top: 30px;
+      .hobby-box{
+        padding:0px 20px;
         width: 200px;
         height: 200px;
+        margin: 30px 20px;
+        .hobby-image{
+          width: 200px;
+          height: 200px;
+        }
       }
     }
   }

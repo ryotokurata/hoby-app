@@ -17,6 +17,19 @@
                 さん
               .review__box__contents__text
                 = message.text
-              
+              - if user_signed_in? 
+                .link-to-chat
+                  =link_to "" do
+                    チャット
+              - else
   .footer
-    = paginate(@messages)
+    - if user_signed_in? 
+      .post-btn
+        =link_to new_group_message_path(@group.id) ,class: "post-btn" do
+          .post-btn__wide
+            .post-btn__wide__content
+              .post-btn__wide__content__text
+                投稿
+              .post-btn__wide__content__icon
+                %i.fa.fa-pen-nib
+    - else

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     end
   end
   resources :groups, only: [:index, :create, :new, :show, :destroy] do
-  end
-  resources :messages, only: [:index, :create, :new, :show, :destroy] do
+    resources :messages, only: [:index, :create, :new, :show, :destroy] do
+      resources :chat, only: [:index, :create, :new, :show, :destroy] do
+      end
+    end
   end
 end

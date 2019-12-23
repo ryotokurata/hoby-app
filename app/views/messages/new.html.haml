@@ -7,7 +7,7 @@
           %h2.registration
             投稿
           .registration-form
-            = form_for @message,method: :post,url:messages_path(@message.id) do |f|
+            = form_for [@group, @message], method: :post,url:group_messages_path(@group.id) do |f|
               .form-contents
                 .formblock1
                   .form-group
