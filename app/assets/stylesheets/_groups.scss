@@ -10,34 +10,33 @@
   background-color: aqua;
   text-align: right;
   display: flex;
+  text-decoration: none;
   &__title{
     font-size: 40px;
     font-weight: bold;
     color:#fff;
     text-align: left;
     width: 300px;
+    text-decoration: none;
   }
   .post-btn{
-    bottom: 32px;
     font-size: 22px;
     height: 75px;
-    right: 32px;
     width: 100px;
     background-color:black;
     color: inherit;
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
-    z-index: 2;
     &__wide{
+      text-align: center;
       &__content{
-        width: 100px;
+        width:  100px;
         height:80px;
-        text-align: center;
         &__text{
-          font-size: 18px;
+          font-size: 15px;
           color:#ffffff;
-          width: 45px;
+          width: 100px;
           height: 33px;
           margin: 0 auto;
         }
@@ -48,7 +47,7 @@
           i{
             color: #ffffff;
             box-sizing: border-box;
-            font-size: 40px;
+            font-size: 35px;
           }
         }
       }
@@ -69,7 +68,7 @@
     }
   }
   .form{
-    width: 50%;
+    width: 30%;
     margin: 0 auto;
     .form-content{
       margin: 0 auto;
@@ -80,10 +79,18 @@
 .main{
   padding:40px 100px 100px;
   .hobbys{
+    flex-wrap: wrap;
     display: flex;
     margin-top: 30px;
     .hobby-box{
       padding:0px 20px;
+      width: 200px;
+      height: 200px;
+      margin: 30px 20px;
+      .hobby-image{
+        width: 200px;
+        height: 200px;
+      }
     }
   }
 }

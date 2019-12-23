@@ -9,18 +9,20 @@
           .registration-form
             = form_for @message,method: :post,url:messages_path(@message.id) do |f|
               .form-contents
-                .form-group
-                  %label{for: "content"} 
-                  %span.require-message 必須
-                  = f.text_field :content, class:'input-default', placeholder: '題名'
-                .form-group
-                  %label{for: "text"} 
-                  %span.require-message 必須
-                  = f.text_field :text, class:'input-default', placeholder: '説明'
-                .form__mask
-                  = f.label :image, class: 'form__mask__image' do
-                    = icon('fas', 'image', class: 'icon')
-                    = f.file_field :image, class: 'hidden'
-                .form-group 
-                =f.submit "追加" ,class:"btn-red", type:"submit"
+                .formblock1
+                  .form-group
+                    %label{for: "content"} 
+                    = f.text_field :content, class:'input-default', placeholder: '題名'
+                    %span.require-message 必須
+                  .form__mask
+                    = f.label :image, class: 'form__mask__image' do
+                      = icon('fas', 'image', class: 'icon')
+                      = f.file_field :image, class: 'hidden'
+                .formblock2
+                  .form-group
+                    %label{for: "text"} 
+                    = f.text_area :text, class:'input-default2', placeholder: '説明'
+                    %span.require-message 必須
+                  .form-group 
+                  =f.submit "投稿" ,class:"btn-red", type:"submit"
   = render "groups/footer"

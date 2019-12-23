@@ -4,5 +4,10 @@
     .content
       .hobbys
         - @groups.each do |group|
-          =render partial: "imgbox" , locals: { group: group }
+          .hobby-box
+            =link_to messages_path "" do
+              .hobby-image
+                =image_tag group.image.url,size: "200x200"
+              .hobby-content
+                = group.name
   = render "footer"

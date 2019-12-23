@@ -10,6 +10,25 @@
         font-size:20px;
         font-weight: bold;
       }
+      .registration-form{
+        .form-contents{
+          display: flex;
+          .form-group{
+            padding: 20px;
+            .input-default{
+              margin:20px;
+            }
+            .input-default2{
+              width: 400px;
+              height: 400px;
+            }
+            .btn-red{
+              font-size:15px;
+              padding:20px;
+            }
+          }
+        }
+      }
     }
   }
 }
