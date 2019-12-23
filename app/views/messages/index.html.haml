@@ -2,17 +2,8 @@
   = render "groups/header"
   .main
     .content
-      .review
-        .review__box
-          .review__box__image
-            =image_tag("/images/joker.jpg",size: "188x188")
-          .review__box__contents
-            .review__box__contents__content
-              joker/ジョーカー
-            .review__box__contents__text
-              ジョーカーという男はこんなにもわかりやすかったのか、と驚いた。
-              バットマンシリーズはそれぞれ独立した世界なので、今回のジョーカーはこういう解釈なのだと言われてしまえばそれまでだが、
-              本作はノーランの『ダークナイト』に近いリアル路線の世界観だったので、ノーラン版の印象をそのまま引きずって観ていたので驚いたのだ。
+      .group-name
+        = @group.name
       .review
         - @messages.each do |message|
           .review__box
@@ -21,7 +12,11 @@
             .review__box__contents
               .review__box__contents__content
                 = message.content
+              .right_username
+                = message.user.name
+                さん
               .review__box__contents__text
                 = message.text
+              
   .footer
     = paginate(@messages)

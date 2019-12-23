@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   def index
+    @groups = @group.name
     @messages = Message.includes(:user).order("created_at DESC").page(params[:page]).per(10)
   end
 

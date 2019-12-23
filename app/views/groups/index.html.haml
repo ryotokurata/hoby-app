@@ -5,7 +5,7 @@
       .hobbys
         - @groups.each do |group|
           .hobby-box
-            =link_to messages_path "" do
+            =link_to messages_path(group.id) do
               .hobby-image
                 =image_tag group.image.url,size: "200x200"
               .hobby-content

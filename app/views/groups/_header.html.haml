@@ -37,9 +37,12 @@
       - if user_signed_in?
         =link_to destroy_user_session_path, method: :delete do 
           ログアウト
+        .current_user_name
+          = current_user.name
+          さん
       - else
         = link_to "ログイン", new_user_session_path
-    
+  
     
 　　
   

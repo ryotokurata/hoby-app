@@ -13,11 +13,10 @@
                   %label{for: "name"} 
                   = f.text_field :name, class:'input-default', placeholder: 'ジャンル'
                   %span.require-message 必須
-                  
                 .form__mask
                   = f.label :image, class: 'form__mask__image' do
                     = icon('fas', 'image', class: 'icon')
                     = f.file_field :image, class: 'hidden'
                 .form-group 
                 =f.submit "追加" ,class:"btn-red", type:"submit"
-  = render "footer"
+  .footer
