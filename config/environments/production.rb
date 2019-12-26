@@ -1,5 +1,5 @@
 Rails.application.configure do
-  server '18.178.51.140', user: 'ec2-user', roles: %w{app db web}
+  
 
   # Settings specified here will take precedence over those in config/application.rb.
 
