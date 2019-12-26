@@ -1,4 +1,6 @@
 Rails.application.configure do
+  server '18.178.51.140', user: 'ec2-user', roles: %w{app db web}
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -70,8 +72,7 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  server '18.178.51.140', user: 'ec2-user', roles: %w{app db web}
-
+  
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
