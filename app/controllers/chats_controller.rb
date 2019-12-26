@@ -8,7 +8,6 @@ class ChatsController < ApplicationController
   end
 
   def create
-    
     @group = Group.find(params[:group_id])
     @message = Message.find(params[:message_id])
     @chat = Chat.create(chat_params)
