@@ -3,7 +3,7 @@
 lock "~> 3.1"
 
 # Capistranoのログの表示に利用する
-set :application, 'hobby-app'
+set :application, 'hoby-app'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:ryotokurata/hoby-app.git'
