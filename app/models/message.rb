@@ -4,4 +4,9 @@ class Message < ApplicationRecord
   has_many :chats
   validates :content, presence: true, unless: :image?
   mount_uploader :image, ImageUploader
+
+  def self.search(search)
+    return Message.all unless search
+    Message.where('text LIKE(?)', "%#{search}%")
+  end
 end

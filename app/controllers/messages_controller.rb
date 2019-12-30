@@ -21,7 +21,8 @@ class MessagesController < ApplicationController
     end
   end
 
-  def show
+  def search
+    @messages = Message.search(params[:keyword])
   end
 
 private
