@@ -58,21 +58,13 @@
     text-align: right;
     display: inline-flex;
     position: relative;
-    width: 200px;
-    right: 0px;
+    width:250px;
+    right:0px;
     .newuser-btn{
       padding:10px;
     }
     .login-btn{
       padding:10px;
-    }
-  }
-  .form{
-    width: 30%;
-    margin: 0 auto;
-    .form-content{
-      margin: 0 auto;
-      width: 300px;
     }
   }
 }

@@ -1,8 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
-    @messages = @group.messages.includes(:user)
-    # @messages = Message.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    @messages = @group.messages.includes(:user).page(params[:page]).per(5)
   end
 
   def new
@@ -22,12 +21,13 @@ class MessagesController < ApplicationController
   end
 
   def search
-    @messages = Message.search(params[:keyword])
+    @group = Group.find(params[:group_id])
+    @messages = Message.search(params[:search])
   end
 
 private
 
   def message_params
-    params.require(:message).permit(:content,:text,:image).merge(user_id: current_user.id,group_id:@group.id)
+    params.require(:message).permit(:content,:text,:image,:keyword).merge(user_id: current_user.id,group_id:@group.id)
   end
 end

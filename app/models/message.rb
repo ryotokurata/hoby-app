@@ -6,7 +6,10 @@ class Message < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   def self.search(search)
-    return Message.all unless search
-    Message.where('text LIKE(?)', "%#{search}%")
+    if search
+      where(['content LIKE ?', "%#{search}%"]) 
+    else
+      all #全て表示させる
+   end
   end
 end

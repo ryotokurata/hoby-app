@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   end
   resources :groups, only: [:index, :create, :new, :show, :destroy] do
     resources :messages, only: [:index, :create, :new, :show, :destroy] do
+      resources :chats, only: [:index, :create, :new, :show, :destroy] do
+      end
       collection do
         get 'search'
-      end
-      resources :chats, only: [:index, :create, :new, :show, :destroy] do
       end
     end
   end
