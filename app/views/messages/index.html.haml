@@ -5,6 +5,15 @@
       = form_tag search_group_messages_path(@group.id),local: true, method: :get, class: "search-form" do
         = text_field_tag :search
         = submit_tag "検索",content: nil, class: "search-btn"
+    - if user_signed_in? 
+      .post-btn
+        =link_to new_group_message_path(@group.id) ,class: "post-btn" do
+          .post-btn__wide
+            .post-btn__wide__content
+              .post-btn__wide__content__text
+                投稿
+              .post-btn__wide__content__icon
+                %i.fa.fa-pen-nib
     .content
       .group-name
         = @group.name
@@ -28,13 +37,3 @@
               - else
   .pagenate
     = paginate(@messages)
-  .footer
-    - if user_signed_in? 
-      .post-btn
-        =link_to new_group_message_path(@group.id) ,class: "post-btn" do
-          .post-btn__wide
-            .post-btn__wide__content
-              .post-btn__wide__content__text
-                投稿
-              .post-btn__wide__content__icon
-                %i.fa.fa-pen-nib
