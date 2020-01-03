@@ -6,13 +6,17 @@
   font-weight: bold;
 }
 .review{
+  box-sizing: border-box;
   &__box{
     padding:20px;
     display: flex;
     &__contents{
       padding:0 20px;
       &__text{
+        height: 100px;
         margin-top: 20px;
+        overflow: scroll;
+        box-sizing: border-box;
       }
     }
   }
