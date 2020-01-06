@@ -49,18 +49,21 @@
     display: flex;
     &__contents{
       padding:0 20px;
-      &__text{
-        height: 100px;
-        margin-top: 20px;
-        overflow: scroll;
-        box-sizing: border-box;
-      }
-      .more{
-        float:right;
-      }
+      &__content{
+      width: 50%;
+      } 
+    }
+    &__text{
+      height: 100px;
+      margin-top: 20px;
+      overflow: scroll;
+      box-sizing: border-box;
     }
   }
 }
 .paginate{
   padding: 30px;
+}
+.more{
+  float: right;
 }

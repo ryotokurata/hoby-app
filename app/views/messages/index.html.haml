@@ -23,30 +23,30 @@
           .review__box
             .review__box__image
               - if message.image.url nil?
-                =image_tag message.image.url,size: "188x188"
+                =image_tag message.image.url,size: "200x200"
               - else
-                =image_tag "/images/sample_img.gif",size: "188x188"
+                =image_tag "/images/sample_img.gif",size: "200x200"
             .review__box__contents
               .review__box__contents__content
-                = message.content
-              .right_username
-                = message.user.name
-                さん
-              .review__box__contents__text
+                .review__box__contents__content__message
+                  = message.content
+                .right_username
+                  = message.user.name
+                  さん
+                - if user_signed_in? && current_user.id == message.user_id
+                  .more
+                    .more_list
+                      = button_to group_message_path(@group.id,message.id), method: :delete,class: "button" do
+                        削除
+                      = button_to edit_group_message_path(@group.id,message.id), method: :get,class: "button" do
+                        編集
+                -else
+              .review__box__text
                 = message.text
               - if user_signed_in? 
                 .link-to-chat
                   =link_to group_message_chats_path(@group.id,message.id) do
                     チャット
               - else
-            - if user_signed_in? && current_user.id == message.user_id
-              .more
-                .more_list
-                  = button_to group_message_path(@group.id,message.id), method: :delete,class: "button" do
-                    削除
-                  = button_to edit_group_message_path(@group.id,message.id), method: :get,class: "button" do
-                    編集
-            -else
-              .more
     .paginate
       = paginate(@messages)
