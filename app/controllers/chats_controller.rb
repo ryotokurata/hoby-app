@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
     @message = Message.find(params[:message_id])
     @chat = Chat.new
     @messages = @group.messages
-    @chats = @message.chats.includes(:user).page(params[:page]).per(20)
+    @chats = @message.chats.includes(:user).page(params[:page]).per(10)
   end
 
   def create
