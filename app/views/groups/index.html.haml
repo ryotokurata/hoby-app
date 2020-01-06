@@ -7,7 +7,10 @@
           .hobby-box
             =link_to group_messages_path(group.id) do
               .hobby-image
-                =image_tag group.image.url,size: "200x200"
+                - if group.image.url nil?
+                  =image_tag group.image.url,size: "200x200"
+                - else
+                  =image_tag "/images/sample_img.gif",size: "200x200"
               .hobby-content
                 = group.name
   .pagenate

@@ -4,5 +4,7 @@ class Group < ApplicationRecord
   has_many :users, through: :group_users
   has_many :messages
   has_many :chats
-  validates :name, presence: true, uniqueness: true, unless: :image?
+  validates :name, presence: true, uniqueness: true
 end
+
+# , unless: :image?
