@@ -18,6 +18,14 @@ class ChatsController < ApplicationController
     end
   end
 
+  def destroy
+    @group = Group.find(params[:group_id])
+    @message = Message.find(params[:message_id])
+    @chat = Chat.find(params[:id])
+    @chat.destroy
+    redirect_to group_message_chats_path(@chat.group_id,@chat.message_id)
+  end
+
   private
 
   def chat_params

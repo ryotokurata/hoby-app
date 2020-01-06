@@ -3,6 +3,11 @@
   .main
     .content
       .content__main
+        .chat__main__form
+          = form_for [@group,@message,@chat],method: :post,url: group_message_chats_path(@group.id,@message.id,@chat.id) do |f|
+            = f.text_field :comment, class: 'chat__main__form__message', placeholder: 'type a message'
+            .chat__main__form__mask
+            = f.submit 'Send', class: 'form__submit'
         .chat-space
           - @chats.each do |chat|
             .chat-box
@@ -13,11 +18,13 @@
                 = chat.comment
               .created-at
                 = chat.created_at.strftime("%Y/%m/%d %H:%M")
-        .chat__main__form
-          = form_for [@group,@message,@chat],method: :post,url: group_message_chats_path(@group.id,@message.id,@chat.id) do |f|
-            = f.text_field :comment, class: 'chat__main__form__message', placeholder: 'type a message'
-            .chat__main__form__mask
-            = f.submit 'Send', class: 'form__submit'
+            - if user_signed_in? && current_user.id == chat.user_id
+              .more
+                .more_list
+                  = button_to group_message_chat_path(@group.id,@message.id,chat.id), method: :delete,class: "button" do
+                    削除
+            -else
+              .more
   .paginate
     = paginate(@chats)
     

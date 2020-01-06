@@ -39,14 +39,14 @@
                   =link_to group_message_chats_path(@group.id,message.id) do
                     チャット
               - else
-              - if user_signed_in? && current_user.id == message.user_id
-                .more
-                  .more_list
-                    = button_to group_message_path(@group.id,message.id), method: :delete,class: "button" do
-                      削除
-                    = button_to edit_group_message_path(@group.id,message.id), method: :get,class: "button" do
-                      編集
-              -else
-                .more
+            - if user_signed_in? && current_user.id == message.user_id
+              .more
+                .more_list
+                  = button_to group_message_path(@group.id,message.id), method: :delete,class: "button" do
+                    削除
+                  = button_to edit_group_message_path(@group.id,message.id), method: :get,class: "button" do
+                    編集
+            -else
+              .more
     .paginate
       = paginate(@messages)
