@@ -1,0 +1,27 @@
+.wrapper
+  = render "groups/header"
+  .main
+    .content
+      .content__main
+        .container
+          %h2.registration
+            編集
+          .registration-form
+            = form_for [@group,@message], url:group_message_path(@group.id,@message.id) do |f|
+              .form-contents
+                .formblock1
+                  .form-group
+                    %label{for: "content"} 
+                    = f.text_field :content, class:'input-default', placeholder: '題名'
+                    %span.require-message 必須
+                  .form__mask
+                    = f.label :image, class: 'form__mask__image' do
+                      = icon('fas', 'image', class: 'icon')
+                      = f.file_field :image, class: 'hidden'
+                .formblock2
+                  .form-group
+                    %label{for: "text"} 
+                    = f.text_area :text, class:'input-default2', placeholder: '説明'
+                    %span.require-message 必須
+                  .form-group 
+                  =f.submit "Edit" ,class:"btn-red", type:"submit"

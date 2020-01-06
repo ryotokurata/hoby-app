@@ -1,0 +1,21 @@
+.wrapper
+  = render "header"
+  .main
+    .content
+      .content__main
+        .container
+          %h2.registration
+            編集
+          .registration-form
+            = form_for @group,method: :patch,url:group_path(@group.id) do |f|
+              .form-contents
+                .form-group
+                  %label{for: "name"} 
+                  = f.text_field :name, class:'input-default', placeholder: 'ジャンル'
+                  %span.require-message 必須
+                .form__mask
+                  = f.label :image, class: 'form__mask__image' do
+                    = icon('fas', 'image', class: 'icon')
+                    = f.file_field :image, class: 'hidden'
+                .form-group 
+                =f.submit "Edit" ,class:"btn-red", type:"submit"

@@ -64,10 +64,8 @@
 }
 .main{
   padding:40px 100px 100px;
-  
   .content{
     height: 50%;
-    
     .hobbys{
       flex-wrap: wrap;
       display: flex;
@@ -77,6 +75,12 @@
         width: 200px;
         height: 200px;
         margin: 30px 20px;
+        .more_list{
+          display: flex;
+          button{
+            margin-left:10px
+          }
+        }
         .hobby-image{
           width: 200px;
           height: 200px;
