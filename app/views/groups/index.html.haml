@@ -13,6 +13,11 @@
                   =image_tag "/images/sample_img.gif",size: "200x200"
               .hobby-content
                 = group.name
+          .more
+            .more_list
+              = button_to group_path(group.id), method: :delete do
+                削除
+
   .paginate
     = paginate(@groups)
     
