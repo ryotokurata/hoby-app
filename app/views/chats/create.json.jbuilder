@@ -1,4 +1,4 @@
-json.text  @chat.text
-json.user_id  @chat.user.id
-json.group_id  @chat.group.id
-json.message_id @chat.message.id
+json.id      @chat.id
+json.comment @chat.comment 
+json.date    @chat.created_at.strftime("%Y/%m/%d %H:%M")
+json.user_name @chat.user.name
