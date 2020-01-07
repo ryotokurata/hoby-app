@@ -32,47 +32,34 @@ Things you may want to cover:
 |name|string|null: false, index: true|
 
 ### Association
-- has_many :groups, through: :users_group
+- has_many :groups
 - has_many :massages
-  has_many :users_groups
- 
-## categoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|
-|ancestry|string|
-
-### Association
-- has_many :products,dependent: :destroy
-- belongs_to :user
-
+- has_many :chats
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many :users, through: :users_groups
+- belongs_to :user
 - has_many :massages
-- has_many :users_groups
 
-## users_groupテーブル
+## messageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
-|group|references|null: false, foreign_key: true|
+|name|string|null: false|
 ### Association
-- belongs_to :group
-- belongs_to :user
+- bilongs_to :user
+- bilongs_to :group
+- has_many :chats
 
 ## chatテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text||
-|image|text||
 |user_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key: true|
-
+|message_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :group
+- belongs_to :message
 - belongs_to :user
 
