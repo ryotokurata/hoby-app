@@ -12,13 +12,14 @@
           - @chats.each do |chat|
             .chat-box
               .chat-box-content
-                .user-name
-                  = chat.user.name
-                  さん
-                .comment
-                  = chat.comment
-                .created-at
-                  = chat.created_at.strftime("%Y/%m/%d %H:%M")
+                .chat-box-content__text
+                  .user-name
+                    = chat.user.name
+                    さん
+                  .comment
+                    = chat.comment
+                  .created-at
+                    = chat.created_at.strftime("%Y/%m/%d %H:%M")
             - if user_signed_in? && current_user.id == chat.user_id
               .more
                 .more_list
