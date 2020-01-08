@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -64,9 +64,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'kaminari'
-gem 'jquery-rails'
-
 group :production do
   gem 'unicorn', '5.4.1'
-  
 end
+
+gem 'rails-ujs', '~> 5.1.0.beta1' 

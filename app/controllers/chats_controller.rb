@@ -12,7 +12,10 @@ class ChatsController < ApplicationController
     @message = Message.find(params[:message_id])
     @chat = Chat.create(chat_params)
     if @chat.save
-      redirect_to group_message_chats_path(@group.id,@message.id)
+      respond_to do |format|
+        format.html { redirect_to group_message_chats_path(@chat.group_id,@chat.message_id) }
+        format.json
+      end
     else
       render :new
     end
