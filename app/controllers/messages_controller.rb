@@ -45,10 +45,10 @@ class MessagesController < ApplicationController
   def search
     @group = Group.find(params[:group_id])
     @messages = Message.search(params[:search]).page(params[:page]).per(5)
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
 private

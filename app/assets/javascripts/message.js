@@ -4,7 +4,7 @@ $(function() {
 
   `<div class="review__box">
   <div class="review__box__image">
-  <img src="/images/sample_img.gif" alt="Sample img" width="200" height="200">
+    ${message.image}
   </div>
   <div class="review__box__contents">
   <div class="review__box__contents__content">
@@ -31,8 +31,10 @@ $(function() {
   </div>
   </div>`
 
-  $(".search-form").on("keyup", function() {
+  $("search-form").on("keyup", function() {
+    console.log("aaa")
     var input = $(".search-form").val();
+    console.log(input)
     $.ajax({
       type: 'GET',
       url: '/messages/index',
