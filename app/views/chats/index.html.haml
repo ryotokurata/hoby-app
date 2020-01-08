@@ -20,13 +20,13 @@
                     = chat.comment
                   .created-at
                     = chat.created_at.strftime("%Y/%m/%d %H:%M")
-            - if user_signed_in? && current_user.id == chat.user_id
-              .more
-                .more_list
-                  = button_to group_message_chat_path(@group.id,@message.id,chat.id), method: :delete,class: "button" do
-                    削除
-            -else
-              .more
+                - if user_signed_in? && current_user.id == chat.user_id
+                  .more
+                    .more_list
+                      = button_to group_message_chat_path(@group.id,@message.id,chat.id), method: :delete,class: "button" do
+                        削除
+                -else
+                  .more
   .paginate
     = paginate(@chats)
     
