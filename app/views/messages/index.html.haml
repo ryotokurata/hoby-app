@@ -13,7 +13,7 @@
                   %i.fa.fa-pen-nib
       .form
         = form_tag search_group_messages_path(@group.id),local: true, method: :get, class: "search-form" do
-          = text_field_tag :search
+          = text_field_tag :search,class:"search-form"
           = submit_tag "検索",content: nil, class: "search-btn"
     .content
       .group-name
