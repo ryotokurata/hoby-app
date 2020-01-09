@@ -32,9 +32,7 @@ $(function() {
   </div>`
 
   $("search-form").on("keyup", function() {
-    console.log("aaa")
     var input = $(".search-form").val();
-    console.log(input)
     $.ajax({
       type: 'GET',
       url: '/messages/index',
