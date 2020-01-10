@@ -56,4 +56,8 @@ private
   def message_params
     params.require(:message).permit(:content,:text,:image,:keyword).merge(user_id: current_user.id,group_id:@group.id)
   end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
 end
