@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  before_action :move_to_index, except: [:index]
   def index
     @group = Group.find(params[:group_id])
     @message = Message.find(params[:message_id])
@@ -33,6 +34,10 @@ class ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:comment).merge(user_id: current_user.id,group_id:@group.id,message_id:@message.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 
   

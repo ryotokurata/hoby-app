@@ -1,0 +1,25 @@
+.wrapper
+  = render "groups/header"
+  .main
+    .content
+      .content__main
+        .container
+          %h2.registration
+            Login
+          .registration-form
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+              .form-group
+                %label{for: "email"} メールアドレス
+                %span.require-message 必須
+                = f.email_field :email,class:'input-default', placeholder: 'PC・携帯どちらでも可'
+              %input{name: "login_type",type: "hidden",value: ""}/
+              .form-group.form-password-revelation
+                %label{for: "password"} パスワード
+                %span.require-message 必須
+                = f.password_field :password, class:'input-default',placeholder: '6文字以上'
+                .form-password-revelation-toggle
+                  .checkbox-default
+                    = f.password_field :password_confirmation, class:'input-default' ,placeholder: '6文字以上'
+              .form-group 
+              =f.submit "Log in" ,class:"btn-red", type:"submit"
+  .footer

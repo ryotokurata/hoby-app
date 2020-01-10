@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :move_to_index, except: [:index]
   def index
     @groups = Group.all.page(params[:page]).per(10)
   end
@@ -36,5 +37,9 @@ private
 
   def group_params
     params.require(:group).permit(:name, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end

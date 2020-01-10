@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :move_to_index, except: [:index, :search]
+
   def index
     @group = Group.find(params[:group_id])
     @messages = @group.messages.includes(:user).page(params[:page]).per(5)
